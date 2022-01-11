@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Retrieval</title>
+</head>
+<body>
+    <div style="padding-left: 60px;">
+        <h1>Image Retrieval</h1>
+
+            <div style="width:450px; float:left; background:#FFFFFF">
+                <form action="" enctype='multipart/form-data' method='POST'>
+                    <input type="file" name="picture" style="margin-top:20px;"/>
+                    <br>
+                    <i>Upload your picture, please click here: </i>
+                    <input type="submit" value="upload" name="submit" class="button-new" style="margin-top:15px;"/>
+                    <br>
+                    <i>Select type of features: </i>
+                    <label for="types"></label>
+                    <select name="features_types" id="features_types">
+                        <option value="none">--None--</option>
+                        <optgroup label="Global features">
+                            <option value="hsv">HSV features</option>
+                        <option value="rgb">RGB Histogram</option>
+                        <option value="gabor">Gabor Filter</option>
+                        <option value="hog">HOG</option>
+                        </optgroup>
+                        <optgroup label="Local features">
+                        
+                        <option value="lbp">LBP</option>
+                        </optgroup>
+                        <optgroup label="Deep Learning features">
+                            <option value="vgg">VGG</option>
+                            <option value="vgg_pq">VGG with Product Quantization</option>
+                        </optgroup>
+
+                        <optgroup label="Annoy">
+                            <option value="hsv_annoy">HSV with Annoy</option>
+                            <option value="vgg_annoy">VGG with Annoy</option>
+                        </optgroup>
+                    </select>
+                    <br>
+                    <i>Start retrieval, please click here: </i>
+                    <input type="submit" value="retrieval" name="submit" class="button-new" style="margin-top:15px;"/>
+                </form>
+                <h3>{{message}}</h3>
+                <img src="{{ url_for('static', filename= './upload_image/query.jpg') }}" width="400" />
+            </div> 
+
+            <div style=" margin-left:450px; background:#FFFFFF">
+                    <h3>Retrieval result:</h3>
+                    <h4>Similarity of top 6: {{sml1}}, {{sml2}}, {{sml3}}, {{sml4}}, {{sml5}}, {{sml6}},</h4>
+                    <div>
+                        <img src="{{img1_tmb}}" height="200px" width="220px" overflow=hidden/>
+                        <img src="{{img2_tmb}}" height="200px" width="220px" overflow=hidden/>
+                        <img src="{{img3_tmb}}" height="200px" width="220px" overflow=hidden/>
+                        <img src="{{img4_tmb}}" height="200px" width="220px" overflow=hidden/>
+                        <img src="{{img5_tmb}}" height="200px" width="220px" overflow=hidden/>
+                        <img src="{{img6_tmb}}" height="200px" width="220px" overflow=hidden/>
+                    </div>
+                    
+            </div>  
+    </div>
+</body>
+</html>

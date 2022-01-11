@@ -1,0 +1,5 @@
+hsv/annoy
+__pycache__
+*/__pycache__
+*.ann
+static
